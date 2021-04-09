@@ -1,0 +1,42 @@
+<%- include('./partials/header.ejs') %>
+
+    <link rel="stylesheet" href="../stylesheets/style.css">
+
+    <div id="back1" class="d-flex justify-content-between mh-100">
+        <div id="imgee">
+            <img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+        </div>
+        <div id="rdiv" class="d-flex .flex-column justify-content-center align-items-center ms-5 ">
+
+            <form action="/reg" method="POST" class="bd-highlight border border-light">
+                <h1 id="hed">Task 1</h1>
+
+                <h4>Registration Form</h4>
+                <div class="mb-2 ">
+                    <label> User Name</label>
+                    <input type="text" name="username" class="form-control rounded-1">
+                </div>
+
+                <div class="mb-2 ">
+                    <label class="form-label">Contact</label>
+                    <input type="number" name="contact" class="form-control rounded-1">
+                </div>
+
+                <div class="mb-2 ">
+                    <label>Email address</label>
+                    <input type="email" name="email" class="form-control rounded-1">
+                </div>
+
+                <div class="mb-2">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control rounded-1">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-text ">We'll never share your detils with anyone else.</div>
+                <a href="/login" class="me-5 ">For Login</a>
+	
+            </form>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>

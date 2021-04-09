@@ -1,0 +1,40 @@
+#back1{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* background-image: url(https://www.itl.cat/downwall/ibwTxhT_vpn-internet-encryption-uhd-4k-wallpaper-cyber-security/); */
+    /* background-color: rgb(101, 139, 139); */
+}
+/* #imgee{
+    background-image: url('https://abs.twimg.com/sticky/illustrations/lohp_en_850x623.png');
+} */
+#imgee{
+    width: 70%;
+    height: 100%;
+  
+  }
+  #imgee img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px;
+  
+  }
+#hed{
+    font-size: 30px;
+    color: #04626e;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#imgee img{
+   
+    border-radius: 4%;
+}
+#rdiv{
+    position: relative;
+   
+}
+button{
+    width: 100%;
+}

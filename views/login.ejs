@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="../stylesheets/login.css">
+
+
+    <div id="back1" class="d-flex ">
+        <div id="imgee">
+            <img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+        </div>
+        <div id="rdiv" class="d-flex .flex-column justify-content-center align-items-center  ms-5">
+            <form action="/login" method="POST" class="bd-highlight">
+                <h1  id="hed">Task 1</h1>
+                <h4>Login Form</h4>
+                <div class="mb-2 ">
+                    <label class="form-label">username</label>
+                    <input type="text" name="username" class="form-control rounded-1" >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control rounded-1" >
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-text">We'll never share your email with anyone else.</div>
+                <a href="/"class="me-5">For Registration</a>
+              
+            </form>
+        </div>
+    </div>
+
+
+<%- include('./partials/footer.ejs') %>
