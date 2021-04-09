@@ -10,10 +10,7 @@ var userSchema = mongoose.Schema({
   contact: Number,
   email: String,
   password: String,
-  tweets : [{
-    type : mongoose.Schema.Types.ObjectId,
-    ref : 'tweets'
-  }]
+ 
 });
 
 userSchema.plugin(passportLocalMangoose);

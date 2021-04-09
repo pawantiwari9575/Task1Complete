@@ -28,16 +28,6 @@ app.use(passport.session());
 passport.serializeUser(user.serializeUser())
 passport.deserializeUser(user.deserializeUser());
 
-// passport.serializeUser(function(user, done) {
-//   done(null, user.id);
-// });
-
-// used to deserialize the user
-// passport.deserializeUser(function(id, done) {
-//    user.findById(id, function(err,user){
-//      done(err, user)
-//    })
-// });
 
 
 app.use(logger('dev'));

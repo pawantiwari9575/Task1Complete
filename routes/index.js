@@ -4,14 +4,8 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 
 const userModel = require("./users");
-const tweetModel = require("./tweets");
 
 passport.use(new localStrategy(userModel.authenticate()));
-
-
-router.get("/like/:tweetId", isLoggedIn, function (res, req) {
-  console.log(req.session);
-});
 
 router.get("/", function (req, res, next) {
   res.render("index");
@@ -75,79 +69,6 @@ router.post("/posttweet", isLoggedIn, (req, res) => {
       res.send("tweet done");
     });
 });
-
-router.get("/temp", isLoggedIn,function (req, res) {
-  userModel
-    .findOne({ username: req.session.passport.user })
-    .populate("tweets")
-    .then(function (foundUser) {
-      res.send(foundUser);
-    });
-});
-
-router.get("/show-tweet", function (req, res) {
-  tweetModel.find().then(function (tweets) {
-    res.send(tweets);
-  });
-});
-
-// router.get('/likes/:tweetid',function(req,res){
-//   userModel.findOne({username : req.session.passport.user})
-//   console.log(req.session.passport.user)
-//     .then(foundUser=>{
-//       tweetModel.findOne({_id : req.params.tweetid})
-//       .then(foundTweet =>{
-//           console.log(foundTweet)
-//           foundTweet.likes.push(foundUser._id)
-//           foundTweet.save()
-//             .then(data => {
-//               res.send(data)
-//             })
-//         })
-//     })
-//     .catch(err => res.send(err))
-// })
-
-router.get('/likes/:tweetid',function(req,res){
-  userModel.findOne({username : req.session.passport.user})
-    .then(foundUser=>{
-      tweetModel.findOne({_id : req.params.tweetid})
-      console.log(req.params.tweetid)
-        .then(foundTweet =>{
-          foundTweet.likes.push(foundUser._id)
-          foundTweet.save()
-            .then(data => {
-              res.send(data)
-            })
-        })
-    })
-    .catch(err => res.send(err))
-  
-})
-
-router.get('edit/:tweetid',isLoggedIn, function(req, res, next){
-  userModel.findOne({username: req.session.passport.user})
-  .then(function(foundUser) {
-    tweetModel.findById(req.params.tweetid)
-    .then(function(foundTweet){
-      if (foundTweet.userId === foundUser._id){
-        res.send('show update page');
-      }
-      else{
-        res.send('not your tweet');
-      }
-    })
-  })
-})
-router.post('/edit/:tweetid',isLoggedIn, function (req, res,next){
-  tweetModel.findOneAndUpdate({_id: req.params.tweetid})
-  .then(function(foundTweet){
-    caption: req.body.caption
-  })
-  console.log("update");
-})
-
-
 
 
 
